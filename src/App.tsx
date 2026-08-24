@@ -559,41 +559,7 @@ function App() {
             )}
           </ul>
         </div>
-
         <div className="panel">
-          {/* Form routing OSRM: input disimpan sebagai string lalu di-parse saat `loadRoute()`. */}
-          <h2>Routing OSRM</h2>
-          {/* Penjelasan singkat syntax input rute. */}
-          <p className="intro" style={{ marginTop: 0 }}>
-            Isi koordinat dalam urutan <strong>longitude, latitude</strong> lalu klik Muat rute.
-          </p>
-          <p className="intro" style={{ marginTop: 0 }}>
-            Saat app dibuka, contoh rute dari URL GeoJSON yang diberikan akan langsung digambar ke peta.
-            Kalau garis belum terlihat, klik <strong>Muat rute</strong> untuk mem-fetch ulang dan merender polyline.
-          </p>
-          <div className="route-note">
-            <strong>Langkah gambar rute</strong>
-            <ol>
-              <li>Masukkan koordinat asal dan tujuan.</li>
-              <li>Fungsi <code>loadRoute()</code> menyusun URL OSRM dari <code>ROUTE_URL</code>.</li>
-              <li>Response OSRM diambil dari <code>data.routes[0]</code>.</li>
-              <li>Koordinat GeoJSON <code>[lng, lat]</code> diubah ke format Leaflet <code>[lat, lng]</code>.</li>
-              <li>Polyline merah tebal digambar ulang di <code>routeLayer</code>.</li>
-            </ol>
-          </div>
-          <div className="route-note">
-            {/* Lokasi definisi penting di file ini. */}
-            <strong>Di mana definisi rutenya?</strong>
-            <p>
-              Definisi endpoint ada di konstanta <code>ROUTE_URL</code> di bagian atas file ini.
-              Input sumber datanya ada di <code>routeInputs</code>, lalu fungsi <code>loadRoute()</code>
-              membangun request ke OSRM dan menggambar hasil GeoJSON sebagai polyline di peta.
-            </p>
-            <p>
-              Contoh request yang dipakai aplikasi ini adalah:
-            </p>
-            <code>{ROUTE_EXAMPLE_URL}</code>
-          </div>
           <div className={`route-status ${routeStatus.kind}`}>
             {routeStatus.message}
           </div>
